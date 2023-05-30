@@ -1,0 +1,55 @@
+<div>
+    <h2><b>Contact List</b></h2>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <h3><b>Name</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Last Names</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Phone</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Mobile</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Email</b></h3>
+        </div>
+    </div>
+    <div *ngFor="let contact of contactList">
+        <div class="row" *ngIf="!confirmEdit || editedContact._id != contact._id">
+            <div class="col-2">
+                <b>{{contact.name}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{contact.lastNames}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{contact.phone}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{contact.mobile}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{contact.email}}</b>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-secondary" (click)="switchEdit(contact)">Edit</button>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-secondary" (click)="deleteContact(contact)">Delete</button>
+            </div>
+        </div>
+        <!-- . -->
+        <form class="row" *ngIf="confirmEdit && editedContact._id == contact._id" (ngSubmit)="editContact()">
+            <label for="phone" class="col-3">phone: </label><input id="phone" type="text" name="phone" class="col-7"
+                [(ngModel)]="editedContact.phone" required><br>
+            <label for="mobile" class="col-3">mobile: </label><input id="mobile" type="text" name="mobile" class="col-7"
+                [(ngModel)]="editedContact.mobile" required><br>
+            <button class="col-5" (click)="switchNotEdit()">Cancel</button>
+            <button class="col-5" type="submit">Save</button>
+        </form>
+    </div>
+</div>

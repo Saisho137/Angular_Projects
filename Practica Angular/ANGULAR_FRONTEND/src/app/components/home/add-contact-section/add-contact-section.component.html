@@ -1,0 +1,24 @@
+<div>
+    <br>
+    <h2><b>Add Contact to Directory</b></h2>
+    <br>
+    <form class="row" (ngSubmit)="addContact()">
+        <label for="name" class="col-4">
+            <h3><b>Name: </b></h3>
+        </label><input id="name" type="text" name="name" class="col-8" [(ngModel)]="name" required><br>
+        <label for="lastNames" class="col-4">
+            <h3><b>Last Names: </b></h3>
+        </label><input id="lastNames" type="text" name="lastNames" class="col-8" [(ngModel)]="lastNames" required><br>
+        <label for="phone" class="col-4">
+            <h3><b>Phone: </b></h3>
+        </label><input id="phone" type="text" name="phone" class="col-8" [(ngModel)]="phone" required><br>
+        <label for="mobile" class="col-4">
+            <h3><b>Mobile: </b></h3>
+        </label><input id="mobile" type="text" name="mobile" class="col-8" [(ngModel)]="mobile" required><br>
+        <label for="email" class="col-4">
+            <h3><b>Email: </b></h3>
+        </label><input id="email" type="text" name="email" class="col-8" [(ngModel)]="email" required><br>
+        <button class="col-12">Save</button>
+    </form>
+    <br>
+</div>
