@@ -1,0 +1,49 @@
+<div>
+    <h2><b>Review List</b></h2>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <h3><b>Name</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Score</b></h3>
+        </div>
+        <div class="col-2">
+            <h3><b>Visit Date</b></h3>
+        </div>
+        <div class="col-4">
+            <h3><b>Comments</b></h3>
+        </div>
+    </div>
+    <div *ngFor="let review of renderList">
+        <div class="row mt-2 border" *ngIf="!confirmEdit || reviewToEdit._id != review._id">
+            <div class="col-2">
+                <b>{{review.name}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{review.score}}</b>
+            </div>
+            <div class="col-2">
+                <b>{{review.visitDate}}</b>
+            </div>
+            <div class="col-4">
+                <b>{{review.comments}}</b>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-secondary" (click)="switchEdit(review)">Edit</button>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-secondary" (click)="deleteReview(review)">Delete</button>
+            </div>
+        </div>
+        <!-- . -->
+        <form class="row border mt-2" *ngIf="confirmEdit && reviewToEdit._id == review._id" (ngSubmit)="editReview()">
+            <label for="score" class="col-4"><b>Score: </b></label><input id="score" type="number" name="score" class="col-8"
+                [(ngModel)]="reviewToEdit.score" required><br>
+            <label for="comments" class="col-4"><b>Comments: </b></label><input id="comments" type="text" name="comments" class="col-8"
+                [(ngModel)]="reviewToEdit.comments" required><br>
+            <button class="col-6" (click)="switchNotEdit()">Cancel</button>
+            <button class="col-6" type="submit">Save</button>
+        </form>
+    </div>
+</div>

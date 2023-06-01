@@ -1,0 +1,33 @@
+<div>
+    <br>
+    <h2><b>Add Review</b></h2>
+    <br>
+    <form class="row border" (ngSubmit)="addReview()">
+        <label for="name" class="col-4 d-flex justify-content-center">
+            <h3><b>Name: </b></h3>
+        </label>
+        <div class="col-8">
+            <input id="name" type="text" name="name" class="form-control" [(ngModel)]="name" required>
+        </div><br>
+        <label for="score" class="col-4 d-flex justify-content-center">
+            <h3><b>Score: </b></h3>
+        </label>
+        <div class="col-8">
+            <input id="score" type="number" name="score" class="form-control" [(ngModel)]="score" required>
+        </div><br>
+        <label for="visitDate" class="col-4 d-flex justify-content-center">
+            <h3><b>Visit Date: </b></h3>
+        </label>
+        <div class="col-8">
+            <input id="visitDate" type="text" name="visitDate" class="form-control" [(ngModel)]="visitDate" required>
+        </div><br>
+        <label for="comments" class="col-4 d-flex justify-content-center">
+            <h3><b>Comments: </b></h3>
+        </label>
+        <div class="col-8">
+            <input id="comments" type="text" name="comments" class="form-control" [(ngModel)]="comments" required>
+        </div><br>
+        <button class="col-12 btn btn-secondary">Save</button>
+    </form>
+    <br>
+</div>
